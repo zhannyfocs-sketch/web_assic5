@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slime Hunt - Task 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="java/task1.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <span class="logo">✦ Teyvat Tasks</span>
+    <nav>
+      <a href="task1.html" class="active">Battle</a>
+      <a href="task2.html">Study Board</a>
+      <a href="task3.html">Character</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="panel">
+      <h1>Slime Hunt</h1>
+      <p class="subtitle">Help Lumine defeat the Slime. Attack, defend or heal!</p>
+
+      <div class="arena">
+        <div class="fighter">
+          <img src="task1imgs/lumine.png" alt="Lumine">
+          <h2>Lumine</h2>
+          <progress id="heroBar" value="100" max="100" aria-label="Lumine HP"></progress>
+          <p><span id="heroHp">100</span> HP</p>
+        </div>
+        <div class="vs">VS</div>
+        <div class="fighter">
+          <img src="task1imgs/slime.png" alt="Slime">
+          <h2>Slime</h2>
+          <progress id="enemyBar" class="enemy" value="100" max="100" aria-label="Slime HP"></progress>
+          <p><span id="enemyHp">100</span> HP</p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="attackBtn" type="button" class="primary">Attack</button>
+        <button id="defendBtn" type="button">Defend</button>
+        <button id="healBtn" type="button">Heal (<span id="healCount">3</span> left)</button>
+      </div>
+
+      <p id="message" class="message" role="status"></p>
+      <p id="banner" class="banner hidden"></p>
+      <button id="restartBtn" type="button" class="primary hidden">Play again</button>
+
+      <h2 class="log-title">Last 5 actions</h2>
+      <ol id="log" class="log"></ol>
+    </section>
+  </main>
+</body>

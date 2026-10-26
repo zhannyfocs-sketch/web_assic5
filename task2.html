@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Board - Task 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="java/task2.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <span class="logo">✦ Teyvat Tasks</span>
+    <nav>
+      <a href="task1.html">Battle</a>
+      <a href="task2.html" class="active">Study Board</a>
+      <a href="task3.html">Character</a>
+    </nav>
+  </header>
+
+  <main class="page wide">
+    <section class="panel">
+      <h1>Study Board</h1>
+      <p class="subtitle">Move cards from left to right. Only 3 cards fit in "In progress".</p>
+
+      <div class="toolbar">
+        <div><label for="searchInput">Search</label>
+          <input type="search" id="searchInput" placeholder="Type a task name..."></div>
+        <div><label for="tagFilter">Subject</label>
+          <select id="tagFilter"></select></div>
+        <div><label for="sortSelect">Sort by priority</label>
+          <select id="sortSelect">
+            <option value="none">Default order</option>
+            <option value="high">High first</option>
+            <option value="low">Low first</option>
+          </select></div>
+        <div><label for="progressBar">Done: <span id="progressText">0%</span></label>
+          <progress id="progressBar" value="0" max="100"></progress></div>
+      </div>
+
+      <p id="message" class="message" role="status"></p>
+      <p id="emptyMessage" class="message error hidden">No tasks found. Try another word or subject.</p>
+
+      <div id="board" class="board">
+        <section class="column">
+          <h2>To do <span id="todoCount" class="count">0</span></h2>
+          <div id="todoList"></div>
+        </section>
+        <section class="column">
+          <h2>In progress <span id="inprogressCount" class="count">0</span></h2>
+          <div id="inprogressList"></div>
+        </section>
+        <section class="column">
+          <h2>Done <span id="doneCount" class="count">0</span></h2>
+          <div id="doneList"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

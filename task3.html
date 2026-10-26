@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traveler Registry - Task 3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="java/task3.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <span class="logo">✦ Teyvat Tasks</span>
+    <nav>
+      <a href="task1.html">Battle</a>
+      <a href="task2.html">Study Board</a>
+      <a href="task3.html" class="active">Character</a>
+    </nav>
+  </header>
+
+  <main class="page wide">
+    <div id="summary" class="summary hidden" role="alert" tabindex="-1"></div>
+
+    <div class="layout">
+      <form id="charForm" class="panel">
+        <h1>Adventurers' Guild</h1>
+        <p class="subtitle">Register a new traveler of Teyvat</p>
+
+        <div class="field">
+          <label for="charName">Name</label>
+          <input type="text" id="charName" required minlength="3" maxlength="12" pattern="[A-Za-z ]+" autocomplete="off" aria-describedby="charNameError">
+          <p class="error" id="charNameError"></p>
+        </div>
+
+        <div class="field">
+          <label for="charWeapon">Weapon</label>
+          <select id="charWeapon" required aria-describedby="charWeaponError">
+            <option value="">Choose a weapon...</option>
+            <option>Sword</option><option>Claymore</option><option>Polearm</option><option>Bow</option><option>Catalyst</option>
+          </select>
+          <p class="error" id="charWeaponError"></p>
+        </div>
+
+        <div class="field">
+          <label for="charVision">Vision (element)</label>
+          <select id="charVision" required aria-describedby="charVisionError">
+            <option value="">Choose a Vision...</option>
+            <option>Pyro</option><option>Hydro</option><option>Anemo</option><option>Electro</option>
+            <option>Dendro</option><option>Cryo</option><option>Geo</option>
+          </select>
+          <p class="error" id="charVisionError"></p>
+        </div>
+
+        <div class="field">
+          <label for="charRegion">Home region</label>
+          <select id="charRegion" required aria-describedby="charRegionError">
+            <option value="">Choose a region...</option>
+            <option>Mondstadt</option><option>Liyue</option><option>Inazuma</option>
+            <option>Sumeru</option><option>Fontaine</option><option>Natlan</option>
+          </select>
+          <p class="error" id="charRegionError"></p>
+        </div>
+
+        <fieldset aria-describedby="pointsError">
+          <legend>Talent points left: <span id="pointsLeft">16</span> / 20</legend>
+
+          <div class="field">
+            <label for="skillAttack">Normal Attack (1-10)</label>
+            <input type="number" id="skillAttack" value="1" min="1" max="10" required data-name="Normal Attack" aria-describedby="skillAttackError">
+            <p class="error" id="skillAttackError"></p>
+          </div>
+          <div class="field">
+            <label for="skillElemental">Elemental Skill (1-10)</label>
+            <input type="number" id="skillElemental" value="1" min="1" max="10" required data-name="Elemental Skill" aria-describedby="skillElementalError">
+            <p class="error" id="skillElementalError"></p>
+          </div>
+          <div class="field">
+            <label for="skillBurst">Elemental Burst (1-10)</label>
+            <input type="number" id="skillBurst" value="1" min="1" max="10" required data-name="Elemental Burst" aria-describedby="skillBurstError">
+            <p class="error" id="skillBurstError"></p>
+          </div>
+          <div class="field">
+            <label for="skillDefense">Defense (1-10)</label>
+            <input type="number" id="skillDefense" value="1" min="1" max="10" required data-name="Defense" aria-describedby="skillDefenseError">
+            <p class="error" id="skillDefenseError"></p>
+          </div>
+          <p class="error" id="pointsError"></p>
+        </fieldset>
+
+        <button type="submit" class="primary form-buttons">Create character</button>
+      </form>
+
+      <aside class="panel sticky">
+        <h2>Live preview</h2>
+        <div id="previewCard" class="char-card">
+          <div id="previewInitial" class="initial">?</div>
+          <h3 id="previewName">Unnamed Traveler</h3>
+          <p id="previewMeta" class="card-meta">No weapon · No Vision · No region</p>
+          <div class="skill-row"><span>Normal Attack</span><progress id="bar-skillAttack" max="10" value="1"></progress><strong id="val-skillAttack">1</strong></div>
+          <div class="skill-row"><span>Elem. Skill</span><progress id="bar-skillElemental" max="10" value="1"></progress><strong id="val-skillElemental">1</strong></div>
+          <div class="skill-row"><span>Elem. Burst</span><progress id="bar-skillBurst" max="10" value="1"></progress><strong id="val-skillBurst">1</strong></div>
+          <div class="skill-row"><span>Defense</span><progress id="bar-skillDefense" max="10" value="1"></progress><strong id="val-skillDefense">1</strong></div>
+        </div>
+      </aside>
+    </div>
+
+    <section id="resultBox" class="panel hidden" tabindex="-1"></section>
+  </main>
+</body>
+</html>
